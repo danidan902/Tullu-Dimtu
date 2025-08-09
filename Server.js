@@ -10,7 +10,13 @@ const PORT = process.env.PORT || 5001
 const app = express();
 dotenv.config();
 // Middleware
-app.use(cors());
+app.use(cors(
+  app.use(cors(
+  origin: 'https://tulludimturegistration.vercel.app', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+));
+  
 app.use(express.json());
 app.use(morgan('dev'));
 
